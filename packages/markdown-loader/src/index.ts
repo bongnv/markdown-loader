@@ -48,7 +48,7 @@ const remarkImages = (
         nodes.map(async (node) => {
           const traceRequest = `${node.url}?trace`;
           const result = await loadModule(traceRequest);
-          const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" ${node.alt}>`;
+          const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" alt="${node.alt}">`;
           node.type = "html";
           node.value = rawHtml;
         }),
