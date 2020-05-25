@@ -28,7 +28,7 @@ const  MarkdownImagesPlugin = ({ loaderContext, hooks }: Context) => {
           nodes.map(async (node) => {
             const alt = node.alt ? `alt="${node.alt}"` : "";
             const result = await loadModule(<string>node.url);
-            const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" ${alt}">`;
+            const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" ${alt}>`;
             node.type = "html";
             node.value = rawHtml;
           }),
