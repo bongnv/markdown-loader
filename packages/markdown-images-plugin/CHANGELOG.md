@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.3](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-images-plugin@0.1.2...@bongnv/markdown-images-plugin@0.1.3) (2020-05-25)
+
+
+### Bug Fixes
+
+* wrong alt tag ([b7c93f1](https://github.com/bongnv/markdown-loader/commit/b7c93f1aa91d20b9a1aab35b6a2b0c629b6b3689))
+
+
+
+
+
 ## [0.1.2](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-images-plugin@0.1.1...@bongnv/markdown-images-plugin@0.1.2) (2020-05-25)
 
 
