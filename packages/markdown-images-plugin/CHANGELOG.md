@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-images-plugin@0.1.1...@bongnv/markdown-images-plugin@0.1.2) (2020-05-25)
+
+
+### Bug Fixes
+
+* simplify codes ([464a375](https://github.com/bongnv/markdown-loader/commit/464a375b01887e1713c75136701fa9229a30189a))
+
+
+
+
+
 ## [0.1.1](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-images-plugin@0.1.0...@bongnv/markdown-images-plugin@0.1.1) (2020-05-25)
 
 

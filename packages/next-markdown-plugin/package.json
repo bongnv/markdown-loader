@@ -1,6 +1,6 @@
 {
   "name": "@bongnv/next-markdown-plugin",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A NextJS plugin for handling markdown files",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@bongnv/markdown-images-plugin": "^0.1.0",
+    "@bongnv/markdown-images-plugin": "^0.1.2",
     "@bongnv/markdown-loader": "^0.2.0",
     "file-loader": "^6.0.0",
     "image-trace-loader": "^1.0.2",
