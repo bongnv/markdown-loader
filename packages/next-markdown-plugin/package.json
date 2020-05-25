@@ -19,12 +19,15 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@bongnv/markdown-images-plugin": "^0.1.0",
     "@bongnv/markdown-loader": "^0.2.0",
     "file-loader": "^6.0.0",
     "image-trace-loader": "^1.0.2",
-    "image-webpack-loader": "^6.0.0",
-    "imagemin-optipng": "^8.0.0"
+    "image-webpack-loader": "^6.0.0"
+  },
+  "peerDependencies": {
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-mozjpeg": "^8.0.0"
   }
 }
