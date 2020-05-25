@@ -1,18 +1,27 @@
 import graymatter from "gray-matter";
 import remark from "remark";
 import sanitizeHTML from "sanitize-html";
-import { Attacher, Pluggable, Transformer } from "unified";
+import unified from "unified";
 import { Node } from "unist";
-import vfile from "vfile";
 import webpack from "webpack";
 import visit from "unist-util-visit";
 import _ from "lodash";
+import loaderUtils from "loader-utils";
+import { AsyncSeriesHook } from "tapable";
 
 const EXCERPT_LENGTH = 200;
 const READING_SPEED = 230;
 
-function buildPlugins(plugins: (string | Pluggable)[] = []): Pluggable[] {
-  const normalize = (entry: string | Pluggable) => {
+export interface Context {
+  loaderContext: webpack.loader.LoaderContext;
+  processor?: unified.Processor;
+  hooks: {
+    beforeParse: AsyncSeriesHook;
+  }
+}
+
+function buildPlugins(plugins: (string | unified.Pluggable)[] = []): unified.Pluggable[] {
+  const normalize = (entry: string | unified.Pluggable) => {
     return typeof entry === "string" ? require(entry) : entry;
   };
 
@@ -23,39 +32,27 @@ function buildPlugins(plugins: (string | Pluggable)[] = []): Pluggable[] {
   });
 }
 
-const remarkImages = (
-  loaderContext: webpack.loader.LoaderContext,
-): Attacher => {
-  return (): Transformer => {
-    return (tree: Node, file: vfile.VFile, next) => {
-      const loadModule = (request: string) =>
-        new Promise<any>((resolve, reject) => {
-          loaderContext.loadModule(request, (err, source) => {
-            if (err) {
-              reject(err);
-            }
+type Plugin = (context: Context) => void;
+type Plugable = string | [string, object] | Plugin;
 
-            resolve(eval(source));
-          });
-        });
+const applyPlugins = (plugins: Plugable[], context: Context) => {
+  const applyPlugin = (plugable: Plugable) => {
+    if (typeof plugable === "string") {
+      require(plugable)(context);
+      return;
+    }
 
-      const nodes: Node[] = [];
-      visit(tree, "image", (node: Node) => {
-        nodes.push(node);
-      });
+    if (Array.isArray(plugable)) {
+      require(plugable[0])(context, plugable[1]);
+      return;
+    }
 
-      Promise.all(
-        nodes.map(async (node) => {
-          const traceRequest = `${node.url}?trace`;
-          const result = await loadModule(traceRequest);
-          const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" alt="${node.alt}">`;
-          node.type = "html";
-          node.value = rawHtml;
-        }),
-      ).then(() => next && next(null, tree, file));
-    };
-  };
-};
+    plugable(context);
+    return;
+  }
+
+  plugins.map((entry) => applyPlugin(entry));
+}
 
 const getExcerpt = (text: string, length: number): string => {
   let excerpt = text.replace(/\r?\n|\r/g, " ");
@@ -107,8 +104,15 @@ const getHeadings = (ast: Node, depth: number): Heading[] => {
   );
 };
 
-const MarkdownLoader: webpack.loader.Loader = function (source) {
-  const callback = this.async();
+const transformMarkdown = async (loaderContext: webpack.loader.LoaderContext, source: string | Buffer) => {
+  const options = loaderUtils.getOptions(loaderContext) || {};
+  const context: Context = {
+    loaderContext,
+    hooks: {
+      beforeParse: new AsyncSeriesHook(["context"]),
+    }
+  }
+  applyPlugins(options.plugins, context);
 
   const { data, content } = graymatter(source);
 
@@ -116,32 +120,43 @@ const MarkdownLoader: webpack.loader.Loader = function (source) {
     "remark-slug",
     "remark-autolink-headings",
     "@gridsome/remark-prismjs",
-    remarkImages(this),
     "remark-html",
   ]);
+
   const processor = remark().use(plugins);
 
+  context.processor = processor;
+  await context.hooks.beforeParse.promise(context);
   const tree = processor.parse(content);
-  processor.run(tree).then((ast) => {
-    const html = processor.stringify(ast);
-    const text = sanitizeHTML(html, {
-      allowedAttributes: {},
-      allowedTags: [],
-    });
-
-    if (!data.excerpt) {
-      data.excerpt = getExcerpt(text, EXCERPT_LENGTH);
-    }
-
-    const exported = {
-      ...data,
-      html,
-      timeToRead: getTimeToRead(text, READING_SPEED),
-      headings: getHeadings(ast, 3),
-    };
-
-    callback!(null, `module.exports = ${JSON.stringify(exported)}`);
+  const ast = await processor.run(tree);
+  const html = processor.stringify(ast);
+  const text = sanitizeHTML(html, {
+    allowedAttributes: {},
+    allowedTags: [],
   });
+
+  if (!data.excerpt) {
+    data.excerpt = getExcerpt(text, EXCERPT_LENGTH);
+  }
+
+  return {
+    ...data,
+    html,
+    timeToRead: getTimeToRead(text, READING_SPEED),
+    headings: getHeadings(ast, 3),
+  }
+}
+
+const MarkdownLoader: webpack.loader.Loader = function (source) {
+  const callback = this.async();
+
+  transformMarkdown(this, source)
+    .then((exported) => {
+      callback!(null, `module.exports = ${JSON.stringify(exported)}`);
+    })
+    .catch((err) => {
+      callback!(err);
+    });
 };
 
 module.exports = MarkdownLoader;

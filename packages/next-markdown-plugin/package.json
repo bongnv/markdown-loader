@@ -1,0 +1,26 @@
+{
+  "name": "@bongnv/next-markdown-plugin",
+  "version": "0.0.0",
+  "description": "A NextJS plugin for handling markdown files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bongnv/markdown-loader.git"
+  },
+  "author": "Bong Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bongnv/markdown-loader/issues"
+  },
+  "homepage": "https://github.com/bongnv/markdown-loader#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@bongnv/markdown-images-plugin": "^0.0.0",
+    "@bongnv/markdown-loader": "^0.1.1"
+  }
+}

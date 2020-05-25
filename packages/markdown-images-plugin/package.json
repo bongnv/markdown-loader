@@ -1,0 +1,37 @@
+{
+  "name": "@bongnv/markdown-images-plugin",
+  "version": "0.0.0",
+  "description": "A plugin to handle images for markdown-loader",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "build": "tsx",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bongnv/markdown-loader.git"
+  },
+  "author": "Bong Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bongnv/markdown-loader/issues"
+  },
+  "homepage": "https://github.com/bongnv/markdown-loader#readme",
+  "devDependencies": {
+    "@types/unist": "^2.0.3",
+    "@types/vfile": "^4.0.0",
+    "@types/webpack": "^4.41.13",
+    "typescript": "^3.9.3",
+    "unified": "^9.0.0",
+    "@bongnv/markdown-loader": "^0.1.0"
+  },
+  "dependencies": {
+    "unist-util-visit": "^2.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
