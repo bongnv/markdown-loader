@@ -1,6 +1,6 @@
 {
   "name": "@bongnv/next-markdown-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A NextJS plugin for handling markdown files",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "image-webpack-loader": "^6.0.0"
   },
   "peerDependencies": {
-    "imagemin-optipng": "^8.0.0",
-    "imagemin-mozjpeg": "^8.0.0"
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^8.0.0"
   }
 }
