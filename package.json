@@ -4,9 +4,9 @@
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:publish": "lerna publish"
   },
-	"devDependencies": {
-		"lerna": "^2.11.0"
-	},
+  "devDependencies": {
+    "lerna": "^3.22.0"
+  },
   "workspaces": [
     "packages/*"
   ]
