@@ -27,8 +27,7 @@ const  MarkdownImagesPlugin = ({ hooks }: Context) => {
 
         Promise.all(
           nodes.map(async (node) => {
-            const traceRequest = `${node.url}?trace`;
-            const result = await loadModule(traceRequest);
+            const result = await loadModule(<string>node.url);
             const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" alt="${node.alt}">`;
             node.type = "html";
             node.value = rawHtml;
