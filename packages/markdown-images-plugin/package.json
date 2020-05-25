@@ -24,7 +24,6 @@
     "@bongnv/markdown-loader": "^0.2.0",
     "@types/unist": "^2.0.3",
     "@types/vfile": "^4.0.0",
-    "@types/webpack": "^4.41.13",
     "typescript": "^3.9.3",
     "unified": "^9.0.0"
   },

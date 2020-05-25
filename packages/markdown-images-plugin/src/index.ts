@@ -1,12 +1,11 @@
-import webpack from "webpack";
 import { Attacher, Transformer } from 'unified';
 import { VFile } from "vfile";
 import { Node } from "unist";
 import visit from "unist-util-visit";
 import { Context } from "@bongnv/markdown-loader";
 
-const  MarkdownImagesPlugin = ({ hooks }: Context) => {
-  const remarkImages = (loaderContext: webpack.loader.LoaderContext): Attacher => {
+const  MarkdownImagesPlugin = ({ loaderContext, hooks }: Context) => {
+  const remarkImages = (): Attacher => {
     return (): Transformer => {
       return (tree: Node, file: VFile, next) => {
         const loadModule = (request: string) =>
@@ -27,8 +26,9 @@ const  MarkdownImagesPlugin = ({ hooks }: Context) => {
 
         Promise.all(
           nodes.map(async (node) => {
+            const alt = node.alt ? `alt="${node.alt}"` : "";
             const result = await loadModule(<string>node.url);
-            const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" alt="${node.alt}">`;
+            const rawHtml = `<img class="lazy" src="${result.trace}" data-src="${result.src}" ${alt}">`;
             node.type = "html";
             node.value = rawHtml;
           }),
@@ -41,8 +41,8 @@ const  MarkdownImagesPlugin = ({ hooks }: Context) => {
     };
   }
 
-  hooks.beforeParse.tap("MarkdownImagesPlugin", ({ loaderContext, processor}) => {
-    processor!.use(remarkImages(loaderContext))
+  hooks.beforeParse.tap("MarkdownImagesPlugin", ({ processor}) => {
+    processor!.use(remarkImages())
   })
 }
 
