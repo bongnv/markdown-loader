@@ -1,6 +1,6 @@
 {
   "name": "@bongnv/next-markdown-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A NextJS plugin for handling markdown files",
   "main": "index.js",
   "scripts": {
