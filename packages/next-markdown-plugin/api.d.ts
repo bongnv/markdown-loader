@@ -1,10 +1,10 @@
-const getPostBySlug: (
+declare type getPostBySlug = (
   slug: string,
   fields: string[],
 ) => Promise<Record<string, any>>;
-const getAllPosts: (fields: string[]) => Promise<Record<string, any>[]>;
+declare type getAllPosts = (fields: string[]) => Promise<Record<string, any>[]>;
 
-export default {
-  getPostBySlug,
-  getAllPosts,
-};
+export interface Plugin {
+  getPostBySlug: getPostBySlug,
+  getAllPosts: getAllPosts,
+}
