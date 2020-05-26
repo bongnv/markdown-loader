@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = (nextConfig = {}) => {
   const contentDir = nextConfig.contentDir || path.resolve(process.cwd(), "content");
+  const apiModule =  path.resolve(__dirname, "lib/api.js");
 
   return Object.assign({}, nextConfig, {
     webpack: (config, options) => {
@@ -39,6 +40,7 @@ module.exports = (nextConfig = {}) => {
         ]
       })
 
+      config.resolve.alias["next-markdown-plugin/api"] = apiModule;
       config.resolve.alias["@content"] = contentDir;
 
       if (typeof nextConfig.webpack === "function") {

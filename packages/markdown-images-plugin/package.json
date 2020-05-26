@@ -4,6 +4,9 @@
   "description": "A plugin to handle images for markdown-loader",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "build": "tsx",
   "scripts": {
     "build": "tsc",
