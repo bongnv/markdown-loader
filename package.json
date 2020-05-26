@@ -3,7 +3,8 @@
   "scripts": {
     "upgrade-version": "lerna exec -- yarn upgrade --latest",
     "lerna:bootstrap": "lerna bootstrap",
-    "lerna:publish": "lerna publish"
+    "lerna:publish": "lerna publish",
+    "lerna:publish:dry": "lerna publish --skip-npm --skip-git"
   },
   "devDependencies": {
     "lerna": "^3.22.0"
