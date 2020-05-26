@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.2...@bongnv/next-markdown-plugin@0.2.3) (2020-05-26)
+
+
+### Bug Fixes
+
+* types declaration ([c5046ee](https://github.com/bongnv/markdown-loader/commit/c5046ee3836c3e6df903909dc081a10b81675b0e))
+
+
+
+
+
 ## [0.2.2](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.1...@bongnv/next-markdown-plugin@0.2.2) (2020-05-26)
 
 
