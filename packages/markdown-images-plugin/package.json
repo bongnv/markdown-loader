@@ -1,6 +1,6 @@
 {
   "name": "@bongnv/markdown-images-plugin",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A plugin to handle images for markdown-loader",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/bongnv/markdown-loader#readme",
   "devDependencies": {
-    "@bongnv/markdown-loader": "^0.2.0",
+    "@bongnv/markdown-loader": "^0.2.1",
     "@types/unist": "^2.0.3",
     "@types/vfile": "^4.0.0",
     "typescript": "^3.9.3",

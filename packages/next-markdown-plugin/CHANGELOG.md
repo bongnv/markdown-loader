@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.1.4...@bongnv/next-markdown-plugin@0.1.5) (2020-05-26)
+
+
+### Features
+
+* allow to customize content dir ([85baa09](https://github.com/bongnv/markdown-loader/commit/85baa097ba22a19cdcb873e2728c3ffd88e868dc))
+
+
+
+
+
 ## [0.1.4](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.1.3...@bongnv/next-markdown-plugin@0.1.4) (2020-05-25)
 
 **Note:** Version bump only for package @bongnv/next-markdown-plugin

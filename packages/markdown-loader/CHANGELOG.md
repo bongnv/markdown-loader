@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-loader@0.2.0...@bongnv/markdown-loader@0.2.1) (2020-05-26)
+
+
+### Features
+
+* add remark-external-links support ([c90e685](https://github.com/bongnv/markdown-loader/commit/c90e685b9dfbe61642bb25fb5a8f6243c8a8e4dc))
+
+
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-loader@0.1.1...@bongnv/markdown-loader@0.2.0) (2020-05-25)
 
