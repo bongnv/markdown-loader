@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.0...@bongnv/next-markdown-plugin@0.2.1) (2020-05-26)
+
+
+### Features
+
+* use internal pick function ([3de63f8](https://github.com/bongnv/markdown-loader/commit/3de63f8907964fc161f65b700f2ec6ba2c6ffbb7))
+
+
+
+
+
 # [0.2.0](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.1.5...@bongnv/next-markdown-plugin@0.2.0) (2020-05-26)
 
 
