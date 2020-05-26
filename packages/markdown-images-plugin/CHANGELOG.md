@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-images-plugin@0.1.4...@bongnv/markdown-images-plugin@0.2.0) (2020-05-26)
+
+
+### Features
+
+* encapsulate content resovler ([dedeb74](https://github.com/bongnv/markdown-loader/commit/dedeb74b74c446cb0e98a7afb906d98d4e728054))
+
+
+
+
+
 ## [0.1.4](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-images-plugin@0.1.3...@bongnv/markdown-images-plugin@0.1.4) (2020-05-26)
 
 **Note:** Version bump only for package @bongnv/markdown-images-plugin

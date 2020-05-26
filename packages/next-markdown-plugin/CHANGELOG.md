@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.1.5...@bongnv/next-markdown-plugin@0.2.0) (2020-05-26)
+
+
+### Features
+
+* encapsulate content resovler ([dedeb74](https://github.com/bongnv/markdown-loader/commit/dedeb74b74c446cb0e98a7afb906d98d4e728054))
+
+
+
+
+
 ## [0.1.5](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.1.4...@bongnv/next-markdown-plugin@0.1.5) (2020-05-26)
 
 
