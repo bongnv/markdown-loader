@@ -1,7 +1,14 @@
-// TODO: implement pick function
-const { pick } = require("lodash");
-
 const resolve = require.context("@content", true, /\.md$/, "lazy");
+
+const pick = (data, fields) => {
+  const newData = {};
+  fields.forEach((field) => {
+    if (field in data) {
+      newData[field] = data[field]
+    }
+  });
+  return newData;
+}
 
 const getPostBySlug = async (slug, fields) => {
   const md = await resolve(`./${slug}.md`);
