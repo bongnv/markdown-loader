@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.1...@bongnv/next-markdown-plugin@0.2.2) (2020-05-26)
+
+
+### Features
+
+* support typescript declaration ([aa8dfd9](https://github.com/bongnv/markdown-loader/commit/aa8dfd9ce43d3ed39a064c39c6bad225d6468b0a))
+
+
+
+
+
 ## [0.2.1](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.0...@bongnv/next-markdown-plugin@0.2.1) (2020-05-26)
 
 
