@@ -1,4 +1,8 @@
+const path = require("path");
+
 module.exports = (nextConfig = {}) => {
+  const contentDir = nextConfig.contentDir || path.resolve(process.cwd(), "content");
+
   return Object.assign({}, nextConfig, {
     webpack: (config, options) => {
       config.module.rules.push({
@@ -34,6 +38,8 @@ module.exports = (nextConfig = {}) => {
           },
         ]
       })
+
+      config.resolve.alias["@content"] = contentDir;
 
       if (typeof nextConfig.webpack === "function") {
         return nextConfig.webpack(config, options);

@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "upgrade-version": "lerna exec -- yarn upgrade --latest",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:publish": "lerna publish"
   },
