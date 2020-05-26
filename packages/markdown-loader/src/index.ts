@@ -20,7 +20,9 @@ export interface Context {
   }
 }
 
-function buildPlugins(plugins: (string | unified.Pluggable)[] = []): unified.Pluggable[] {
+type RemarkPlugable = string | unified.Pluggable | [string, unified.Settings];
+
+function buildPlugins(plugins: RemarkPlugable[] = []): unified.Pluggable[] {
   const normalize = (entry: string | unified.Pluggable) => {
     return typeof entry === "string" ? require(entry) : entry;
   };
@@ -121,6 +123,10 @@ const transformMarkdown = async (loaderContext: webpack.loader.LoaderContext, so
     "remark-autolink-headings",
     "@gridsome/remark-prismjs",
     "remark-html",
+    ["remark-external-links", {
+      target: "_blank",
+      rel: "noopener noreferrer",
+    }],
   ]);
 
   const processor = remark().use(plugins);
