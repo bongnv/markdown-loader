@@ -29,8 +29,8 @@ function buildPlugins(plugins: RemarkPlugable[] = []): unified.Pluggable[] {
 
   return plugins.map((entry) => {
     return Array.isArray(entry)
-      ? [normalize(entry[0]), entry[1] || {}]
-      : [normalize(entry), {}];
+      ? [normalize(entry[0]), entry[1] || undefined]
+      : [normalize(entry), undefined];
   });
 }
 
