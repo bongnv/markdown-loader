@@ -1,3 +1,4 @@
+declare module "@content/api" {
   declare const API: {
     getPostBySlug: (
       slug: string,
@@ -7,3 +8,4 @@
   }
 
   export default API;
+}

@@ -22,14 +22,14 @@ const getPostBySlug = async (slug, fields) => {
   );
 };
 
-export const getAllPosts = async (fields) => Promise.all(
+const getAllPosts = async (fields) => Promise.all(
   resolve
     .keys()
     .reverse()
     .map((url) => getPostBySlug(url.slice(2, -3), fields))
 );
 
-export default {
+module.exports = {
   getPostBySlug,
   getAllPosts,
 }
