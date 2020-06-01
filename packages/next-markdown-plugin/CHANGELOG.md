@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.4...@bongnv/next-markdown-plugin@0.2.5) (2020-06-01)
+
+
+### Bug Fixes
+
+* require.context is not a function ([27a60e4](https://github.com/bongnv/markdown-loader/commit/27a60e41ca51d74950278ce79445f8c6165c48e6))
+
+
+
+
+
 ## [0.2.4](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.3...@bongnv/next-markdown-plugin@0.2.4) (2020-05-26)
 
 
