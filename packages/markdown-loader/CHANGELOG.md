@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-loader@0.2.1...@bongnv/markdown-loader@0.2.2) (2020-06-01)
+
+
+### Bug Fixes
+
+* default options for plugins ([7c40357](https://github.com/bongnv/markdown-loader/commit/7c40357e5d51d0dd2d5d91fc8ea0eee2373a56a7))
+
+
+
+
+
 ## [0.2.1](https://github.com/bongnv/markdown-loader/compare/@bongnv/markdown-loader@0.2.0...@bongnv/markdown-loader@0.2.1) (2020-05-26)
 
 
