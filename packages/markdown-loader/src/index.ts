@@ -35,26 +35,6 @@ function buildPlugins(plugins: RemarkPlugable[] = []): unified.Pluggable[] {
 }
 
 type Plugin = (context: Context) => void;
-type Plugable = string | [string, object] | Plugin;
-
-const applyPlugins = (plugins: Plugable[], context: Context) => {
-  const applyPlugin = (plugable: Plugable) => {
-    if (typeof plugable === "string") {
-      require(plugable)(context);
-      return;
-    }
-
-    if (Array.isArray(plugable)) {
-      require(plugable[0])(context, plugable[1]);
-      return;
-    }
-
-    plugable(context);
-    return;
-  }
-
-  plugins.map((entry) => applyPlugin(entry));
-}
 
 const getExcerpt = (text: string, length: number): string => {
   let excerpt = text.replace(/\r?\n|\r/g, " ");
@@ -107,14 +87,17 @@ const getHeadings = (ast: Node, depth: number): Heading[] => {
 };
 
 const transformMarkdown = async (loaderContext: webpack.loader.LoaderContext, source: string | Buffer) => {
-  const options = loaderUtils.getOptions(loaderContext) || {};
+  const options = loaderUtils.getOptions(loaderContext) || {
+    plugins: [],
+  };
   const context: Context = {
     loaderContext,
     hooks: {
       beforeParse: new AsyncSeriesHook(["context"]),
     }
   }
-  applyPlugins(options.plugins, context);
+
+  options.plugins.map((plugin: Plugin) => plugin(context));
 
   const { data, content } = graymatter(source);
 

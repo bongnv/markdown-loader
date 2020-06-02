@@ -12,7 +12,7 @@ module.exports = (nextConfig = {}) => {
           loader: "@bongnv/markdown-loader",
           options: {
             plugins: [
-              "@bongnv/markdown-images-plugin",
+              require("@bongnv/markdown-images-plugin"),
             ]
           }
         }
