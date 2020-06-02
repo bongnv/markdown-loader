@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.6...@bongnv/next-markdown-plugin@0.2.7) (2020-06-02)
+
+
+### Features
+
+* update Plugin interface ([5a79f08](https://github.com/bongnv/markdown-loader/commit/5a79f08677c29c59f7a4089713c06ec1f0cf1578))
+
+
+
+
+
 ## [0.2.6](https://github.com/bongnv/markdown-loader/compare/@bongnv/next-markdown-plugin@0.2.5...@bongnv/next-markdown-plugin@0.2.6) (2020-06-01)
 
 **Note:** Version bump only for package @bongnv/next-markdown-plugin
