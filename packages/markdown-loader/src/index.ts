@@ -97,11 +97,12 @@ const transformMarkdown = async (loaderContext: webpack.loader.LoaderContext, so
     }
   }
 
-  options.plugins.map((plugin: Plugin) => plugin(context));
+  const plugins = options.plugins || [];
+  plugins.map((plugin: Plugin) => plugin(context));
 
   const { data, content } = graymatter(source);
 
-  const plugins = buildPlugins([
+  const remarkPlugins = buildPlugins([
     "remark-slug",
     "remark-autolink-headings",
     "@gridsome/remark-prismjs",
@@ -112,7 +113,7 @@ const transformMarkdown = async (loaderContext: webpack.loader.LoaderContext, so
     }],
   ]);
 
-  const processor = remark().use(plugins);
+  const processor = remark().use(remarkPlugins);
 
   context.processor = processor;
   await context.hooks.beforeParse.promise(context);
